@@ -1,0 +1,33 @@
+# project: cj7tswvot14jm0146au493q0x
+# version: 2
+
+type File implements Node {
+  contentType: String!
+  createdAt: DateTime!
+  id: ID! @isUnique
+  name: String!
+  secret: String! @isUnique
+  size: Int!
+  updatedAt: DateTime!
+  url: String! @isUnique
+}
+
+type Sport implements Node {
+  id: ID! @isUnique
+  name: String! @isUnique
+  teams: [Team!]! @relation(name: "SportOnTeam")
+}
+
+type Team implements Node {
+  id: ID! @isUnique
+  sport: Sport @relation(name: "SportOnTeam")
+  users: [User!]! @relation(name: "TeamOnUser")
+}
+
+type User implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  regno: String! @isUnique
+  team: Team @relation(name: "TeamOnUser")
+  updatedAt: DateTime!
+}
