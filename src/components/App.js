@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Create from './Create';
 import CreateSport from './CreateSport';
 import Header from './Header';
+import CreateTeam from './CreateTeam'
 // import '../styles/App.css';
 // import '../styles/Bootstrap.min.css';
 import {Switch,Route } from 'react-router-dom';
@@ -9,11 +10,13 @@ import {Switch,Route } from 'react-router-dom';
 class App extends Component {
   render() {
     return (
-      <div className="Container-fluid">
+      <div className="Container">
       <Header/>
+      <br/>
       <div>
         <Switch>
-          <Route exact path='/create' component={CreateSport}/> 
+          <Route exact path='/create' component={Create}/> 
+           <Route exact path='/AddTeam' component={CreateTeam}/> 
         </Switch>
       </div>
       </div>

@@ -8,7 +8,7 @@ class CreateSport extends Component{
 	}
 	render(){
 		return(
-			<div>
+			<div className='col-md-6'>
 				<form onSubmit={(e)=> {
 					e.preventDefault();
 					this._createSport();
@@ -20,7 +20,8 @@ class CreateSport extends Component{
 					value={this.state.name}
 					onChange={(e)=>this.setState({name:e.target.value})}
 					type='text'
-					placeholder='The name of the sport you want to add'
+					placeholder='name of the sport to be added'
+					className='form-control'
 					/>
 					</div>
 				</form>

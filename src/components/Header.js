@@ -10,8 +10,11 @@ class Header extends Component {
 			<Link to = '/' className='navbar-brand'>Home</Link>
 			<div className="collapse navbar-collapse">
 			<ul className='nav-bar nav mr-auto'>
-			<li className ='nav-item active'>
-			<Link to = '/create'>New</Link>
+			<li className ='nav-item'>
+			<Link to = '/create' className='nav-link'>New Sport</Link>
+			</li>
+			<li className ='nav-item'>
+			<Link to = '/AddTeam' className='nav-link'>New Team</Link>
 			</li>
 			</ul>
 			</div>
