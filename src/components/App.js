@@ -3,6 +3,8 @@ import Create from './Create';
 import CreateSport from './CreateSport';
 import Header from './Header';
 import CreateTeam from './CreateTeam'
+import CreateInventoryItem from './CreateInventoryItem'
+import InventoryDash from './InventoryDash'
 // import '../styles/App.css';
 // import '../styles/Bootstrap.min.css';
 import {Switch,Route } from 'react-router-dom';
@@ -17,6 +19,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/create' component={Create}/> 
            <Route exact path='/AddTeam' component={CreateTeam}/> 
+           <Route exact path='/Inventory' component={InventoryDash}/>
         </Switch>
       </div>
       </div>

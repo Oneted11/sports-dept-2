@@ -12,6 +12,7 @@ class CreateSport extends Component{
 				<form onSubmit={(e)=> {
 					e.preventDefault();
 					this._createSport();
+					this.setState({name:''})
 				}
 				}
 				>
@@ -30,7 +31,7 @@ class CreateSport extends Component{
 	}
 	_createSport= async() =>{
 		const{name}= this.state
-		await this.props.CreateSportMutation({
+		await this.props.createSportMutation({
 			variables:{
 				name
 			}
@@ -47,4 +48,4 @@ mutation CreateSportMutation($name:String!){
 	}
 }
 `
-export default graphql(create_sport_mutation,{name:'CreateSportMutation'})(CreateSport)
+export default graphql(create_sport_mutation,{name:'createSportMutation'})(CreateSport)

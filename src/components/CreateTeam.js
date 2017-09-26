@@ -14,6 +14,7 @@ class CreateTeam extends Component{
 			<form onSubmit ={(e)=>{
 				e.preventDefault();
 				this._createteamName();
+				this.setState({name:''})
 			}}
 			>
 				<div className= 'form-group'>
