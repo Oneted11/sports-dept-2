@@ -4,19 +4,27 @@ import {gql,graphql} from 'react-apollo'
 import { Link } from 'react-router-dom'
 
 class IndividualInventory extends Component{
-	constructor(){
-		super();
-		async()=>{
-			const {id}= this.props.match.params.id
-			await this.props.individualQuery({
+	// constructor(props){
+	// 	super(props);
+	// 	console.log(this.props.match)
+		
+	// 	this.fun();
+	// }
+	// componentWillMount() {
+	// 	console.log(this.props.match.params.id)
+	// 	this.fun()		
+	// }
+	getInitialState (){
+		const id = this.props.match.params.id
+		this.props.individualQuery({
 				variables:{
 					id
 				}
 			})
-		}
 	}
 	render(){
-
+		// this.fun()
+  //       console.log(this.props.match.params.id)
 		const inventoryItem = this.props.individualQuery
 		return(
 			<div>
@@ -25,6 +33,14 @@ class IndividualInventory extends Component{
 			</div>
 			)
 	}
+	// fun = async()=>{
+	// 		const id= this.props.match.params.id
+	// 		await this.props.individualQuery({
+	// 			variables:{
+	// 				id
+	// 			}
+	// 		})
+	// 	}
 
 }
 const INDIVIDUAL_INVENTORY_QUERY = gql `

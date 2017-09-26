@@ -12,7 +12,7 @@ render(){
 		<div>
 		<Switch>
 		<Route exact path='/Inventory' component = {InventoryList}/>
-		<Route path ='/Inventory/id' component = {IndividualInventory}/>	
+		<Route path ='/Inventory/:id' component = {IndividualInventory}/>	
 		</Switch>
 		</div>
 

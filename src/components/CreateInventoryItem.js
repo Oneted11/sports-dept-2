@@ -4,9 +4,6 @@ import { graphql, gql } from 'react-apollo'
 import InventoryList from './InventoryList'
 
 class CreateInventoryItem extends Component{
-	constructor(props){
-		super(props);
-	}
 	state = {
 		name:'',
 		// number:
