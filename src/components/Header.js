@@ -19,6 +19,9 @@ class Header extends Component {
 			<li className ='nav-item'>
 			<Link to = '/Inventory' className='nav-link'>Inventory</Link>
 			</li>
+			<li className ='nav-item'>
+			<Link to = '/InventoryNew' className='nav-link'>InventoryNew</Link>
+			</li>
 			</ul>
 			</div>
 			</nav>

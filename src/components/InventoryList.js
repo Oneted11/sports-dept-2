@@ -1,32 +1,29 @@
 // InventoryList.js
 import React, { Component } from 'react'
 import { graphql, gql } from 'react-apollo'
-import InventoryItems from './InventoryItems'
-import{Link } from 'react-router-dom'
+import IndividualInventory from './IndividualInventory'
+import{Link,Route } from 'react-router-dom'
 
-class InventoryList extends Component {
-	render(){
-		if (this.props.allInventoriesQuery && this.props.allInventoriesQuery.loading) {
-			return <div> loading...</div>
-		}
-		if (this.props.allInventoriesQuery && this.props.allInventoriesQuery.error) {
-			return <div> Error</div>
-		}
-		const InventoriesToDisplay = this.props.allInventoriesQuery.allInventories
-		return(
+const InventoryList = ({AllInventory,match})=>{
+	console.log("the props for InventoryList",AllInventory)
+	if (AllInventory && AllInventory.loading) return(<div>Loading...</div>)
+		if (AllInventory && AllInventory.error) return(<div>connection error</div>)
+			const InventoriestoDisplay = AllInventory.allInventories
+			return (
 			<div>
-				{InventoriesToDisplay.map(items=><InventoryItems key= {items.id} items={items}></InventoryItems>)}
+			<div className='col'>
+			{
+				InventoriestoDisplay.map((item,index)=>
+				<div key={item.id} >
+				<Link to = {`${match.url}/${item.id}`}>
+					{index+1}.{item.itemName}({item.itemNumber})
+					</Link>
+				</div>)
+			}
 			</div>
-			)
+			<div className='col'>
+			</div>
+			</div>
+		)
 	}
-}
-const ALL_INVENTORY_QUERY = gql `
-query AllInventoriesQuery{
-	allInventories{
-		id
-		itemName
-		itemNumber
-	}
-}
-`
-export default graphql(ALL_INVENTORY_QUERY,{name:'allInventoriesQuery'})(InventoryList)
+export default InventoryList;
